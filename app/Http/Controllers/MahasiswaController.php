@@ -118,6 +118,11 @@ class MahasiswaController extends Controller
         return redirect('mahasiswa/index')->with('mahasiswa', $mahasiswa)->with('success', 'data berhasil diupdate');
     }
 
+    public function destroy($mahasiswa)
+    {
+        Mahasiswa::where('id_mahasiswa',$mahasiswa)->delete();
+        return redirect()->back()->with('success','Berhasil menghapus data');
+    }
     // public function cetak_pdf()
     // {
     //     $data = Mahasiswa::all();

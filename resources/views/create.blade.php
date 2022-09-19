@@ -7,9 +7,9 @@
 </head>
 <body>
     <div class="container">
-    	<a href="" class="btn btn-secondary mt-3">Kembali</a>
+    	<a href="{{route('index')}}" class="btn btn-secondary mt-3">Kembali</a>
         <h2> Tambahkan Mahasiswa </h2>
-        <form method="post" action="" enctype="multipart/form-data">
+        <form method="post" action="{{route('store')}}" enctype="multipart/form-data">
         	@csrf
         	<div class="form-floating mb-3">
 			  <input type="text" class="form-control" name="name" id="name" placeholder="Nama Mahasiswa">

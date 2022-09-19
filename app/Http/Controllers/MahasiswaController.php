@@ -12,7 +12,8 @@ class MahasiswaController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $data = Mahasiswa::get();
+        return view('index', compact('data'));
     }
 
     public function create()
@@ -37,7 +38,7 @@ class MahasiswaController extends Controller
         }
 
         $file = $request->file('avatar');
-        $image_name = $file->getOriginalName();
+        $image_name = $file->getClientOriginalName();
 
         if($file){
             $image_name = $file->store('images', 'public');
@@ -84,7 +85,7 @@ class MahasiswaController extends Controller
         }
 
         $file = $request->file('avatar');
-        $image_name = $file->getOriginalName();
+        $image_name = $file->getClientOriginalName();
 
         if($file){
             $image_name = $file->store('images', 'public');

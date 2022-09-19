@@ -25,7 +25,7 @@ Route::prefix('mahasiswa')->group(function () {
     Route::get('index', [MahasiswaController::class, 'index'])->name('index');
     Route::get('create', [MahasiswaController::class, 'create'])->name('create');
     Route::post('create/store', [MahasiswaController::class, 'store'])->name('store');
-    Route::get('edit', [MahasiswaController::class, 'edit'])->name('edit');
-    Route::post('edit/update', [MahasiswaController::class, 'update'])->name('update');
+    Route::get('edit/{mahasiswa}', [MahasiswaController::class, 'edit'])->name('edit');
+    Route::post('edit/update/{mahasiswa}', [MahasiswaController::class, 'update'])->name('update');
     Route::get('delete', [MahasiswaController::class, 'delete'])->name('delete');
 });

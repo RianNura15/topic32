@@ -52,7 +52,7 @@ class MahasiswaController extends Controller
             'avatar' => $image_name
         ]);
 
-        return view('index')->with('success', 'Mahasiswa Berhasil Disimpan');
+        return redirect('mahasiswa/index')->with('success', 'Mahasiswa Berhasil Disimpan');
     }
 
     public function show($id)
@@ -60,12 +60,9 @@ class MahasiswaController extends Controller
 
     }
 
-    public function edit($id)
+    public function edit(Mahasiswa $mahasiswa)
     {
-        $data = Mahasiswa::find($id);
-
-        return (!data)? view('no_data') :
-        view('edit')->with('id', $id)->with('data', $data);
+        return view('edit', ['mahasiswa' => $mahasiswa]);
     }
 
     public function update(Request $request, $id)

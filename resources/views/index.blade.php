@@ -11,6 +11,7 @@
 
 	th, td {
 	  text-align: center;
+      border: 1px solid black;
 	  padding: 8px;
 	}
 
@@ -30,16 +31,25 @@
         <a href="{{route('create')}}" class="btn btn-secondary mt-3">Tambah Data</a>
         <table align="center" border="2">
             <tr>
-                <th>Nama Produk</th>
-                <th>Deskripsi produk</th>
-                <th>Gambar Produk</th>
+                <th>No</th>
+                <th>Nama Mahasiswa</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Foto Profil</th>
+                <th>Aksi</th>
             </tr>
             @foreach($data as $list)
+            <?php $no=1 ?>
             <tr>
-                <td>{{$list->nama_produk}}</td>
-                <td>{{$list->deskripsi}}</td>
-                <td><img class="img-preview img-fluid" src="{{ url('/produk/'.$list->gambar) }}" 
+                <td>{{$no++}}</td>
+                <td>{{$list->name}}</td>
+                <td>{{$list->username}}</td>
+                <td>{{$list->email}}</td>
+                <td><img class="img-preview img-fluid" src="{{ asset('storage/'.$list->avatar) }}" 
                 style="max-width: 100px;"></td>
+                <td>
+                    <a href="/mahasiswa/edit/{{$list->id_mahasiswa}}" class="btn btn-success">Edit</a>
+                </td>
             </tr>
             @endforeach
         </table>

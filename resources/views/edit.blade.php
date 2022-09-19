@@ -9,23 +9,30 @@
     <div class="container">
     	<a href="{{route('index')}}" class="btn btn-secondary mt-3">Kembali</a>
         <h2> Tambahkan Mahasiswa </h2>
-        <form method="post" action="mahasiswa/edit/update/{{$mahasiswa->id_mahasiswa}}" enctype="multipart/form-data">
+        <form method="post" action="{{route('update',$mahasiswa->id_mahasiswa)}}" enctype="multipart/form-data">
         	@csrf
         	<div class="form-floating mb-3">
 			  <input type="text" class="form-control" name="name" id="name" value="{{$mahasiswa->name}}">
 			  <label for="floatingInput">Nama Mahasiswa</label>
 			</div>
 			<div class="form-floating mb-3">
-			  <input type="text" class="form-control" name="username" id="username" required value="{{$mahasiswa->username}}">
+			  <input type="text" class="form-control" name="username" id="username" value="{{$mahasiswa->username}}">
 			  <label for="floatingPassword">Username</label>
 			</div>
             <div class="form-floating mb-3">
-			  <input type="email" class="form-control" name="email" id="email" required value="{{$mahasiswa->email}}">
+			  <input type="email" class="form-control" name="email" id="email" value="{{$mahasiswa->email}}">
 			  <label for="floatingPassword">Email</label>
 			</div>
+            <div class="form-floating mb-3">
+			  <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+			  <label for="floatingPassword">Password</label>
+			</div>
 			<div class="mb-3">
+                @if($mahasiswa->avatar)
+                    <img src="{{ asset('storage/'.$mahasiswa->avatar) }}" alt="" width="100px"><br>
+                @endif
 			  <label for="formFile" class="form-label">Foto Profil</label>
-			  <input class="form-control" name="avatar" type="file" id="formFile" required accept="image/*">
+			  <input class="form-control" name="avatar" type="file" id="formFile" accept="image/*">
 			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
         </form>

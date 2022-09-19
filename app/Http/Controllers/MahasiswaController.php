@@ -17,6 +17,12 @@ class MahasiswaController extends Controller
         return view('index', compact('data'));
     }
 
+    public function cetak_pdf()
+    {
+        $data = Mahasiswa::all();
+        return view('cetak_pdf', compact('data'));
+    }
+
     public function create()
     {
         return view('create');
@@ -112,10 +118,10 @@ class MahasiswaController extends Controller
         return redirect('mahasiswa/index')->with('mahasiswa', $mahasiswa)->with('success', 'data berhasil diupdate');
     }
 
-    public function cetak_pdf()
-    {
-        $data = Mahasiswa::all();
-        $pdf = Pdf::loadView('cetak_pdf', ['data' => $data]);
-        return $pdf->stream();
-    }
+    // public function cetak_pdf()
+    // {
+    //     $data = Mahasiswa::all();
+    //     $pdf = Pdf::loadView('cetak_pdf', ['data' => $data]);
+    //     return $pdf->stream();
+    // }
 }

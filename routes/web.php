@@ -28,4 +28,5 @@ Route::prefix('mahasiswa')->group(function () {
     Route::get('edit/{mahasiswa}', [MahasiswaController::class, 'edit'])->name('edit');
     Route::post('edit/update/{mahasiswa}', [MahasiswaController::class, 'update'])->name('update');
     Route::get('delete', [MahasiswaController::class, 'delete'])->name('delete');
+    Route::get('cetak_pdf', [MahasiswaController::class, 'cetak_pdf'])->name('cetakpdf');
 });

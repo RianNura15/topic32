@@ -6,7 +6,7 @@
 	<style>
 	table {
 	  border-collapse: collapse;
-	  width: 50%;
+	  width: 100%;
 	}
 
 	th, td {
@@ -28,7 +28,8 @@
 </head>
 <body>
     <div class="container">
-        <a href="{{route('create')}}" class="btn btn-secondary mt-3">Tambah Data</a>
+        <a href="{{route('create')}}" class="btn btn-secondary mt-3 mb-3">Tambah Data</a>
+        <a href="{{route('cetakpdf')}}" target="_blank" class="btn btn-secondary mt-3 mb-3">Cetak PDF</a>
         <table align="center" border="2">
             <tr>
                 <th>No</th>
